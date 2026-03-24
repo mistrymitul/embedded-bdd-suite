@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.12 on win32)" generated="2026-03-23T21:07:00.497414" rpa="false" schemaversion="5">
+<suite id="s1" name="Fan Control" source="C:\Users\Mitul\embedded-bdd-suite\tests\fan_control.robot">
+<test id="s1-t1" name="Scenario: Set fan to 50 percent speed" line="12">
+<kw name="Given the chassis is powered on" owner="SerialLibrary">
+<msg time="2026-03-23T21:07:00.523307" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Given the chassis is powered on</doc>
+<status status="PASS" start="2026-03-23T21:07:00.523037" elapsed="0.000374"/>
+</kw>
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-23T21:07:00.524123" level="INFO">Sent: SET_FAN_SPEED 50
+Received: OK</msg>
+<arg>SET_FAN_SPEED 50</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.523897" elapsed="0.000298"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.524473" elapsed="0.000139"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>50</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.524771" elapsed="0.000044"/>
+</kw>
+<tag>fan</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-03-23T21:07:00.521831" elapsed="0.003084"/>
+</test>
+<test id="s1-t2" name="Scenario: Set fan to maximum speed" line="19">
+<kw name="Given the chassis is powered on" owner="SerialLibrary">
+<msg time="2026-03-23T21:07:00.525329" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Given the chassis is powered on</doc>
+<status status="PASS" start="2026-03-23T21:07:00.525282" elapsed="0.000067"/>
+</kw>
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-23T21:07:00.525473" level="INFO">Sent: SET_FAN_SPEED 100
+Received: OK</msg>
+<arg>SET_FAN_SPEED 100</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.525432" elapsed="0.000058"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.525568" elapsed="0.000039"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>100</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.525683" elapsed="0.000038"/>
+</kw>
+<tag>fan</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-03-23T21:07:00.525101" elapsed="0.000701"/>
+</test>
+<test id="s1-t3" name="Scenario: Reject invalid fan speed above maximum" line="26">
+<kw name="Given the chassis is powered on" owner="SerialLibrary">
+<msg time="2026-03-23T21:07:00.526156" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Given the chassis is powered on</doc>
+<status status="PASS" start="2026-03-23T21:07:00.526115" elapsed="0.000059"/>
+</kw>
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-23T21:07:00.526288" level="INFO">Sent: SET_FAN_SPEED 150
+Received: ERROR: VALUE_OUT_OF_RANGE</msg>
+<arg>SET_FAN_SPEED 150</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.526250" elapsed="0.000054"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>ERROR: VALUE_OUT_OF_RANGE</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-23T21:07:00.526379" elapsed="0.000034"/>
+</kw>
+<tag>regression</tag>
+<tag>validation</tag>
+<status status="PASS" start="2026-03-23T21:07:00.525959" elapsed="0.000533"/>
+</test>
+<doc>BDD-style tests for chassis fan speed control via serial CLI</doc>
+<status status="PASS" start="2026-03-23T21:07:00.498594" elapsed="0.028151"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">fan</stat>
+<stat pass="3" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">validation</stat>
+</tag>
+<suite>
+<stat name="Fan Control" id="s1" pass="3" fail="0" skip="0">Fan Control</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
