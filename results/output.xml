@@ -1,96 +1,267 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.13.12 on win32)" generated="2026-03-23T21:07:00.497414" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.13.12 on win32)" generated="2026-03-26T21:06:13.516766" rpa="false" schemaversion="5">
 <suite id="s1" name="Fan Control" source="C:\Users\Mitul\embedded-bdd-suite\tests\fan_control.robot">
-<test id="s1-t1" name="Scenario: Set fan to 50 percent speed" line="12">
-<kw name="Given the chassis is powered on" owner="SerialLibrary">
-<msg time="2026-03-23T21:07:00.523307" level="INFO">Mock chassis powered on and ready.</msg>
-<doc>Given the chassis is powered on</doc>
-<status status="PASS" start="2026-03-23T21:07:00.523037" elapsed="0.000374"/>
+<test id="s1-t1" name="Scenario Outline: Valid fan speeds should return OK" line="17">
+<kw name="The Chassis Is Powered On" owner="SerialLibrary" type="SETUP">
+<msg time="2026-03-26T21:06:13.595555" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Background: the chassis is powered on</doc>
+<status status="PASS" start="2026-03-26T21:06:13.595396" elapsed="0.000218"/>
 </kw>
+<kw name="Valid fan speed template">
 <kw name="When I send the command" owner="SerialLibrary">
-<msg time="2026-03-23T21:07:00.524123" level="INFO">Sent: SET_FAN_SPEED 50
-Received: OK</msg>
-<arg>SET_FAN_SPEED 50</arg>
+<msg time="2026-03-26T21:06:13.596382" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 0
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
 <doc>When I send the command    &lt;command&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.523897" elapsed="0.000298"/>
+<status status="PASS" start="2026-03-26T21:06:13.596260" elapsed="0.000158"/>
 </kw>
 <kw name="Then the response should be" owner="SerialLibrary">
 <arg>OK</arg>
 <doc>Then the response should be    &lt;expected&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.524473" elapsed="0.000139"/>
+<status status="PASS" start="2026-03-26T21:06:13.596496" elapsed="0.000057"/>
 </kw>
 <kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>${speed}</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.596610" elapsed="0.000070"/>
+</kw>
+<arg>0</arg>
+<status status="PASS" start="2026-03-26T21:06:13.595999" elapsed="0.000721"/>
+</kw>
+<kw name="Valid fan speed template">
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.597398" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 25
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.597239" elapsed="0.000200"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.597541" elapsed="0.000074"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>${speed}</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.597691" elapsed="0.000093"/>
+</kw>
+<arg>25</arg>
+<status status="PASS" start="2026-03-26T21:06:13.596971" elapsed="0.000862"/>
+</kw>
+<kw name="Valid fan speed template">
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.598436" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 50
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.598352" elapsed="0.000112"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.598525" elapsed="0.000050"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>${speed}</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.598630" elapsed="0.000063"/>
+</kw>
 <arg>50</arg>
-<doc>And the fan speed should read    &lt;value&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.524771" elapsed="0.000044"/>
+<status status="PASS" start="2026-03-26T21:06:13.598174" elapsed="0.000552"/>
 </kw>
-<tag>fan</tag>
-<tag>regression</tag>
-<status status="PASS" start="2026-03-23T21:07:00.521831" elapsed="0.003084"/>
-</test>
-<test id="s1-t2" name="Scenario: Set fan to maximum speed" line="19">
-<kw name="Given the chassis is powered on" owner="SerialLibrary">
-<msg time="2026-03-23T21:07:00.525329" level="INFO">Mock chassis powered on and ready.</msg>
-<doc>Given the chassis is powered on</doc>
-<status status="PASS" start="2026-03-23T21:07:00.525282" elapsed="0.000067"/>
-</kw>
+<kw name="Valid fan speed template">
 <kw name="When I send the command" owner="SerialLibrary">
-<msg time="2026-03-23T21:07:00.525473" level="INFO">Sent: SET_FAN_SPEED 100
-Received: OK</msg>
-<arg>SET_FAN_SPEED 100</arg>
+<msg time="2026-03-26T21:06:13.599910" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 75
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
 <doc>When I send the command    &lt;command&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.525432" elapsed="0.000058"/>
+<status status="PASS" start="2026-03-26T21:06:13.599700" elapsed="0.000278"/>
 </kw>
 <kw name="Then the response should be" owner="SerialLibrary">
 <arg>OK</arg>
 <doc>Then the response should be    &lt;expected&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.525568" elapsed="0.000039"/>
+<status status="PASS" start="2026-03-26T21:06:13.600128" elapsed="0.000125"/>
 </kw>
 <kw name="And the fan speed should read" owner="SerialLibrary">
-<arg>100</arg>
+<arg>${speed}</arg>
 <doc>And the fan speed should read    &lt;value&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.525683" elapsed="0.000038"/>
+<status status="PASS" start="2026-03-26T21:06:13.600368" elapsed="0.000140"/>
+</kw>
+<arg>75</arg>
+<status status="PASS" start="2026-03-26T21:06:13.599253" elapsed="0.002581"/>
+</kw>
+<kw name="Valid fan speed template">
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.603869" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 100
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.602986" elapsed="0.000927"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.604007" elapsed="0.000068"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>${speed}</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.604145" elapsed="0.000076"/>
+</kw>
+<arg>100</arg>
+<status status="PASS" start="2026-03-26T21:06:13.602535" elapsed="0.001721"/>
 </kw>
 <tag>fan</tag>
 <tag>regression</tag>
-<status status="PASS" start="2026-03-23T21:07:00.525101" elapsed="0.000701"/>
+<tag>valid</tag>
+<status status="PASS" start="2026-03-26T21:06:13.594278" elapsed="0.010442"/>
 </test>
-<test id="s1-t3" name="Scenario: Reject invalid fan speed above maximum" line="26">
-<kw name="Given the chassis is powered on" owner="SerialLibrary">
-<msg time="2026-03-23T21:07:00.526156" level="INFO">Mock chassis powered on and ready.</msg>
-<doc>Given the chassis is powered on</doc>
-<status status="PASS" start="2026-03-23T21:07:00.526115" elapsed="0.000059"/>
+<test id="s1-t2" name="Scenario Outline: Invalid fan speeds should return error" line="26">
+<kw name="The Chassis Is Powered On" owner="SerialLibrary" type="SETUP">
+<msg time="2026-03-26T21:06:13.606174" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Background: the chassis is powered on</doc>
+<status status="PASS" start="2026-03-26T21:06:13.606090" elapsed="0.000114"/>
 </kw>
+<kw name="Invalid fan speed template">
 <kw name="When I send the command" owner="SerialLibrary">
-<msg time="2026-03-23T21:07:00.526288" level="INFO">Sent: SET_FAN_SPEED 150
-Received: ERROR: VALUE_OUT_OF_RANGE</msg>
-<arg>SET_FAN_SPEED 150</arg>
+<msg time="2026-03-26T21:06:13.607297" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED -1
+  &gt;&gt; Received: ERROR: VALUE_OUT_OF_RANGE</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
 <doc>When I send the command    &lt;command&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.526250" elapsed="0.000054"/>
+<status status="PASS" start="2026-03-26T21:06:13.607110" elapsed="0.000249"/>
 </kw>
 <kw name="Then the response should be" owner="SerialLibrary">
 <arg>ERROR: VALUE_OUT_OF_RANGE</arg>
 <doc>Then the response should be    &lt;expected&gt;</doc>
-<status status="PASS" start="2026-03-23T21:07:00.526379" elapsed="0.000034"/>
+<status status="PASS" start="2026-03-26T21:06:13.607493" elapsed="0.000110"/>
 </kw>
+<arg>-1</arg>
+<status status="PASS" start="2026-03-26T21:06:13.606703" elapsed="0.000975"/>
+</kw>
+<kw name="Invalid fan speed template">
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.608206" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 101
+  &gt;&gt; Received: ERROR: VALUE_OUT_OF_RANGE</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.608114" elapsed="0.000120"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>ERROR: VALUE_OUT_OF_RANGE</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.608297" elapsed="0.000051"/>
+</kw>
+<arg>101</arg>
+<status status="PASS" start="2026-03-26T21:06:13.607929" elapsed="0.000455"/>
+</kw>
+<kw name="Invalid fan speed template">
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.609952" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 150
+  &gt;&gt; Received: ERROR: VALUE_OUT_OF_RANGE</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.609595" elapsed="0.000444"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>ERROR: VALUE_OUT_OF_RANGE</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.610261" elapsed="0.000340"/>
+</kw>
+<arg>150</arg>
+<status status="PASS" start="2026-03-26T21:06:13.608813" elapsed="0.001935"/>
+</kw>
+<kw name="Invalid fan speed template">
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.612391" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 999
+  &gt;&gt; Received: ERROR: VALUE_OUT_OF_RANGE</msg>
+<arg>SET_FAN_SPEED ${speed}</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.612200" elapsed="0.000254"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>ERROR: VALUE_OUT_OF_RANGE</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.612587" elapsed="0.000103"/>
+</kw>
+<arg>999</arg>
+<status status="PASS" start="2026-03-26T21:06:13.611791" elapsed="0.000965"/>
+</kw>
+<tag>fan</tag>
 <tag>regression</tag>
 <tag>validation</tag>
-<status status="PASS" start="2026-03-23T21:07:00.525959" elapsed="0.000533"/>
+<status status="PASS" start="2026-03-26T21:06:13.605569" elapsed="0.007551"/>
+</test>
+<test id="s1-t3" name="Scenario: Fan speed set to minimum boundary" line="34">
+<kw name="The Chassis Is Powered On" owner="SerialLibrary" type="SETUP">
+<msg time="2026-03-26T21:06:13.614499" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Background: the chassis is powered on</doc>
+<status status="PASS" start="2026-03-26T21:06:13.614309" elapsed="0.000257"/>
+</kw>
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.614895" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 0
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED 0</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.614802" elapsed="0.000130"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.615310" elapsed="0.000164"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>0</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.615697" elapsed="0.000084"/>
+</kw>
+<tag>boundary</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-03-26T21:06:13.613815" elapsed="0.002302"/>
+</test>
+<test id="s1-t4" name="Scenario: Fan speed set to maximum boundary" line="40">
+<kw name="The Chassis Is Powered On" owner="SerialLibrary" type="SETUP">
+<msg time="2026-03-26T21:06:13.617287" level="INFO">Mock chassis powered on and ready.</msg>
+<doc>Background: the chassis is powered on</doc>
+<status status="PASS" start="2026-03-26T21:06:13.617127" elapsed="0.000220"/>
+</kw>
+<kw name="When I send the command" owner="SerialLibrary">
+<msg time="2026-03-26T21:06:13.618892" level="INFO">&gt;&gt; Sent:     SET_FAN_SPEED 100
+  &gt;&gt; Received: OK</msg>
+<arg>SET_FAN_SPEED 100</arg>
+<doc>When I send the command    &lt;command&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.618357" elapsed="0.000628"/>
+</kw>
+<kw name="Then the response should be" owner="SerialLibrary">
+<arg>OK</arg>
+<doc>Then the response should be    &lt;expected&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.619429" elapsed="0.000201"/>
+</kw>
+<kw name="And the fan speed should read" owner="SerialLibrary">
+<arg>100</arg>
+<doc>And the fan speed should read    &lt;value&gt;</doc>
+<status status="PASS" start="2026-03-26T21:06:13.619878" elapsed="0.000092"/>
+</kw>
+<tag>boundary</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-03-26T21:06:13.616722" elapsed="0.003531"/>
 </test>
 <doc>BDD-style tests for chassis fan speed control via serial CLI</doc>
-<status status="PASS" start="2026-03-23T21:07:00.498594" elapsed="0.028151"/>
+<status status="PASS" start="2026-03-26T21:06:13.519216" elapsed="0.101959"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="2" fail="0" skip="0">boundary</stat>
 <stat pass="2" fail="0" skip="0">fan</stat>
-<stat pass="3" fail="0" skip="0">regression</stat>
+<stat pass="4" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">valid</stat>
 <stat pass="1" fail="0" skip="0">validation</stat>
 </tag>
 <suite>
-<stat name="Fan Control" id="s1" pass="3" fail="0" skip="0">Fan Control</stat>
+<stat name="Fan Control" id="s1" pass="4" fail="0" skip="0">Fan Control</stat>
 </suite>
 </statistics>
 <errors>
