@@ -48,13 +48,3 @@ robot --outputdir results tests/fan_control.robot
 start results/report.html        # Windows
 
 ---
-
-## Test Results 
-
-| Scenario | Status |
-|---|---|
-| Set fan to 50% speed | PASS |
-| Set fan to maximum speed (100%) | PASS |
-| Reject invalid fan speed above maximum | PASS |
-
-3/3 passing
